@@ -72,13 +72,15 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = {
-  smurfs: this.state.smurfs,
-  fetchingSmurfs: this.state.fetching,
-  addingSmurf: this.state.addingSmurf,
-  updatingSmurf: this.state.updatingSmurf,
-  deletingSmurf: this.state.deletingSmurf,
+const mapStateToProps = state => {
+  return {
+  smurfs: state.smurfs,
+  fetchingSmurfs: state.fetching,
+  addingSmurf: state.addingSmurf,
+  updatingSmurf: state.updatingSmurf,
+  deletingSmurf: state.deletingSmurf,
   error: null
+  }
 }
 
 export default connect(mapStateToProps, {addingSmurf,gettingSmurfs,deletingSmurf})(App);
