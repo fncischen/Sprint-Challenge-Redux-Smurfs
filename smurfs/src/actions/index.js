@@ -22,15 +22,12 @@ export const addingSmurf = (data) => {
     .catch(err => console.log(err));
 }
 
-export const gettingSmurfs = () => {
+export const gettingSmurfs = (dispatch) => {
   axios.get('/smurfs')
-    .then(function(res){
-      console.log(res);
-      return {
+    .then(res => dispatch({
         type: getSmurfs,
         payload: res.smurfs
-      }
-    })
+      }))
     .catch(err => console.log(err));
 }
 
