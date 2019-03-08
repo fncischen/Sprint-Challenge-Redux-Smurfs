@@ -33,11 +33,11 @@ export const gettingSmurfs = () => {
     .catch(err => console.log(err));
 }
 
-export const deletingSmurfs = (id) => {
+export const deletingSmurf = (id) => {
   axios.delete(`/smurfs/${id}`)
     .then(function(res){
       return {
-        type: deleteSmurfs,
+        type: deleteSmurf,
         payload: res 
       }
   })
