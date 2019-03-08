@@ -23,8 +23,20 @@ In this challenge, you are to build the Smurfs village once again, only this tim
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+Actions are declaritive explicit requests to make a change in the state of a component. 
+Reducers are helper functions that provide logic to make explicit state changes to send back to the component.
+The store acts as a main gatekeeper that holds the entire state tree of the entire redux application. The store bridges the gap between the actions
+that it recieves and the reducers that make the requested state change. 
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+Application state reflectes changes in the global - or entire scope of the application. Component state reflects changes at a local, or individual
+component level. Using application state is recommended for data API requests that affect conditional rendering of the entire application (i.e. for routing purposes). Using component scope is necessary if you only intend to change only one part of the application, or all the state changes are consilidated inside a specific component. 
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+Redux-thunk is a form of middleware system management - a mini-reducer, that allows us to apply logic to change the actions coming from our action creators, prior to sending them to the store and its reducers to make state changes. The purpose is to decouple global state changes by adding an additional filter - gatekeeping functionality to the Redux life cycle (i.e. console.logging all our action and states). 
 
 ## Project Set Up
 
