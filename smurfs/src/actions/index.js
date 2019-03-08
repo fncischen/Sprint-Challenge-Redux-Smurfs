@@ -22,7 +22,7 @@ export const addingSmurf = (data) => {
     .catch(err => console.log(err));
 }
 
-export const gettingSmurfs = (dispatch) => {
+export const gettingSmurfs = () => (dispatch) => {
   axios.get('/smurfs')
     .then(res => dispatch({
         type: getSmurfs,

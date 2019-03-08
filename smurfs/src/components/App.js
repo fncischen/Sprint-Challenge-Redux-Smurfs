@@ -18,9 +18,9 @@ import { connect } from 'react-redux';
  */
 class App extends Component {
 
-  constructor() {
-    super()
-
+  constructor(props) {
+    super(props)
+    // console.log(this.props.gettingSmurfs);
     this.state = {
       name: "",
       age: "",
@@ -35,6 +35,7 @@ class App extends Component {
     // }
 
     this.props.gettingSmurfs;
+    console.log(this.props.gettingSmurfs);
   }
 
   // send delete smurf action 
@@ -58,17 +59,26 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div className="App">
-        <SmurfsList smurfs={this.props.smurfs} delete={this.delete} />
+    console.log(this.props.gettingSmurfs);
+    if (this.props.fetching != true) {
+      return(
+        <div className="smurfs">
+        </div>
+      )
+    }
+    else {
+      return (
+        <div className="App">
+          <SmurfsList smurfs={this.props.smurfs} delete={this.delete} />
 
-        <form onSubmit={this.addSmurf}>
-          <input type="text" name="name" value={this.state.name} onChange={this.handleChanges}></input>    
-          <input type="text" name="age" value={this.state.age} onChange={this.handleChanges}></input> 
-          <input type="text" name="height" value={this.state.height} onChange={this.handleChanges}></input> 
-        </form>
-      </div>
-    );
+          <form onSubmit={this.addSmurf}>
+            <input type="text" name="name" value={this.state.name} onChange={this.handleChanges}></input>    
+            <input type="text" name="age" value={this.state.age} onChange={this.handleChanges}></input> 
+            <input type="text" name="height" value={this.state.height} onChange={this.handleChanges}></input> 
+          </form>
+        </div>
+      )
+      }
   }
 }
 

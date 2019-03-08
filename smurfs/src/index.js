@@ -11,7 +11,8 @@ import { smurfReducer } from './reducers';
 
 const store = createStore(
   smurfReducer, // this is the most basic reducer. A function that returns and object. Replace it.
-  applyMiddleware(thunk,logger)
+  applyMiddleware(thunk,logger),
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 ReactDOM.render(
