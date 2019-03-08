@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Smurf} from "./components";
+import {Smurf} from "./";
 
 export default SmurfsList = props => {
     return(
