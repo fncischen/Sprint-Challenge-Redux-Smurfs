@@ -3,6 +3,11 @@
   Be sure to export each action type so you can pull it into your reducer
 */
 
+export const addSmurf = "addSmurf";
+export const getSmurfs = "getSmurfs";
+export const updateSmurf = "updateSmurf";
+export const deleteSmurf = "deleteSmurf";
+
 /*
   For this project you'll need at least 2 action creators for the main portion,
    and 2 more for the stretch problem.
