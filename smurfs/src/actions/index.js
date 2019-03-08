@@ -8,6 +8,10 @@ import axios from 'axios';
 
 export const addSmurf = "addSmurf";
 export const getSmurfs = "getSmurfs";
+
+export const FETCHING = "FETCHING";
+export const FAILURE = "FAILURE";
+
 export const updateSmurf = "updateSmurf";
 export const deleteSmurf = "deleteSmurf";
 
@@ -22,13 +26,15 @@ export const addingSmurf = (data) => {
     .catch(err => console.log(err));
 }
 
-export const gettingSmurfs = () => (dispatch) => {
+export const gettingSmurfs = () => dispatch => {
+  dispatch({type: FETCHING})
   axios.get('/smurfs')
-    .then(res => dispatch({
-        type: getSmurfs,
-        payload: res.smurfs
-      }))
-    .catch(err => console.log(err));
+    .then(function(res) {
+      console.log("Getting smurfs!", res);
+      return dispatch => 
+        dispatch({type: getSmurfs})
+      })
+    .catch(err => dispatch({type: FAILURE}));
 }
 
 export const deletingSmurf = (id) => {

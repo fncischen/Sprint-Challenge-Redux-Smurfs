@@ -30,12 +30,8 @@ class App extends Component {
 
   // for updating the smurfsList after recieving updates from the store
   componentDidMount() {
-    // if(this.props.fetchingSmurfs) {
-
-    // }
-
+    console.log("dispatching action!", this.props.gettingSmurfs)
     this.props.gettingSmurfs;
-    console.log(this.props.gettingSmurfs);
   }
 
   // send delete smurf action 
@@ -60,7 +56,8 @@ class App extends Component {
 
   render() {
     console.log(this.props.gettingSmurfs);
-    if (this.props.fetching != true) {
+    console.log(this.props);
+    if (this.props.fetchingSmurfs != true) {
       return(
         <div className="smurfs">
         </div>
@@ -72,12 +69,12 @@ class App extends Component {
           <SmurfsList smurfs={this.props.smurfs} delete={this.delete} />
 
           <form onSubmit={this.addSmurf}>
-            <input type="text" name="name" value={this.state.name} onChange={this.handleChanges}></input>    
-            <input type="text" name="age" value={this.state.age} onChange={this.handleChanges}></input> 
-            <input type="text" name="height" value={this.state.height} onChange={this.handleChanges}></input> 
+            <b>Name:</b><input type="text" name="name" value={this.state.name} onChange={this.handleChanges}></input>    
+            <b>Age:</b><input type="text" name="age" value={this.state.age} onChange={this.handleChanges}></input> 
+            <b>Height:</b><input type="text" name="height" value={this.state.height} onChange={this.handleChanges}></input> 
           </form>
         </div>
-      )
+      );
       }
   }
 }
