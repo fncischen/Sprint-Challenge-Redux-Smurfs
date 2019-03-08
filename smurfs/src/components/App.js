@@ -14,14 +14,14 @@ class App extends Component {
 
   }
 
-  toggle = (e,id) => {
-    
+  delete = (e,id) => {
+
   }
 
   render() {
     return (
       <div className="App">
-        <SmurfsList smurfs={this.props.smurfs} toggle={this.props.toggle} />
+        <SmurfsList smurfs={this.props.smurfs} delte={this.props.delete} />
       </div>
     );
   }
