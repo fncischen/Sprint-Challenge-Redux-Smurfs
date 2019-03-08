@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {Smurf} from "./";
+import Smurf from "./Smurf";
 
-export default SmurfsList = props => {
+const SmurfsList = props => {
     return(
         <div className="smurfs-list">
             {props.smurfs.map(a_smurf => 
@@ -10,3 +10,5 @@ export default SmurfsList = props => {
         </div>
     )
 } 
+
+export default SmurfsList;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default Smurf = props => {
+const Smurf = props => {
     return(
         <div className="smurf">
         <ul>
@@ -13,3 +13,5 @@ export default Smurf = props => {
         </div>
     )
 } 
+
+export default Smurf;
