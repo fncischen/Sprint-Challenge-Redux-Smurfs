@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 
 import SmurfsList from "./SmurfsList";
+import { connect } from 'react-redux'; 
 /*
  to wire this component up you're going to need a few things.
  I'll let you do this part on your own. 
