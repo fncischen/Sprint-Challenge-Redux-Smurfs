@@ -81,4 +81,4 @@ const mapStateToProps = {
   error: null
 }
 
-export default App;
+export default connect(mapStateToProps, {addingSmurf,gettingSmurfs,deletingSmurf})(App);
