@@ -15,35 +15,33 @@ export const FAILURE = "FAILURE";
 export const updateSmurf = "updateSmurf";
 export const deleteSmurf = "deleteSmurf";
 
-export const addingSmurf = (data) => {
-  axios.put('/smurfs', {data})
+export const addingSmurf = (data) => dispatch => {
+  axios.post('http://localhost:3333/smurfs', data)
     .then(function(res){
-      return {
-        type: addSmurf,
-        payload: res.smurfs 
-      }
+      console.log("Adding!", res.data);
+      return dispatch(
+        {type: addSmurf,
+        payload: res.data})
     })
     .catch(err => console.log(err));
 }
 
 export const gettingSmurfs = () => dispatch => {
   dispatch({type: FETCHING})
-  axios.get('/smurfs')
+  axios.get('http://localhost:3333/smurfs')
     .then(function(res) {
-      console.log("Getting smurfs!", res);
-      return dispatch => 
-        dispatch({type: getSmurfs})
-      })
-    .catch(err => dispatch({type: FAILURE}));
+      console.log("This res data:",res.data);
+       return dispatch({type: getSmurfs, payload: res.data});
+    }
+      )
+    .catch(err => dispatch({type: FAILURE, error: err}));
 }
 
-export const deletingSmurf = (id) => {
-  axios.delete(`/smurfs/${id}`)
+export const deletingSmurf = (id) => dispatch => {
+  axios.delete(`http://localhost:3333/smurfs/${id}`)
     .then(function(res){
-      return {
-        type: deleteSmurf,
-        payload: res.smurfs
-      }
+      console.log("Delete:", res)
+      return dispatch({type: deleteSmurf, payload: res.data})
   })
   .catch(err => console.log(err));
 }

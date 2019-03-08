@@ -31,18 +31,17 @@ class App extends Component {
   // for updating the smurfsList after recieving updates from the store
   componentDidMount() {
     console.log("dispatching action!", this.props.gettingSmurfs)
-    this.props.gettingSmurfs;
+    this.props.gettingSmurfs();
   }
 
   // send delete smurf action 
-  delete = (e,id) => {
-    e.preventDefault();
+  delete = (id) => {;
     this.props.deletingSmurf(id);
   }
 
   // send add smurf action, with the handleChanges state as arguments sent to action creators
-  addSmurf = e => {
-    e.preventDefault();
+  addSmurf = event => {
+    event.preventDefault();
     const data = {name: this.state.name, age: this.state.age, height: this.state.height};
     this.props.addingSmurf(data)
 
@@ -57,14 +56,8 @@ class App extends Component {
   render() {
     console.log(this.props.gettingSmurfs);
     console.log(this.props);
-    if (this.props.fetchingSmurfs != true) {
-      return(
-        <div className="smurfs">
-        </div>
-      )
-    }
-    else {
-      return (
+  
+    return (
         <div className="App">
           <SmurfsList smurfs={this.props.smurfs} delete={this.delete} />
 
@@ -72,11 +65,12 @@ class App extends Component {
             <b>Name:</b><input type="text" name="name" value={this.state.name} onChange={this.handleChanges}></input>    
             <b>Age:</b><input type="text" name="age" value={this.state.age} onChange={this.handleChanges}></input> 
             <b>Height:</b><input type="text" name="height" value={this.state.height} onChange={this.handleChanges}></input> 
+          
+            <button type="submit">Add Smurf</button>
           </form>
         </div>
       );
-      }
-  }
+    }
 }
 
 const mapStateToProps = state => {

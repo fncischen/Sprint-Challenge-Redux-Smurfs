@@ -21,17 +21,17 @@ export const smurfReducer = (state = initialState, action) => {
   console.log("Action:", action.type);
   switch(action.type) {
     case FETCHING:
-      return {...state, fetchingSmurfs: true}
+      return {...state}
     case FAILURE: 
-      return {... state, fetchingSmurfs: false, error: action.err}
+      return {...state}
     case addSmurf:
-      return {... state, smurfs: action.payload, addingSmurf: true};
+      return {...state, smurfs: action.payload}
     case getSmurfs:
-      return {... state, smurfs: action.payload, fetchingSmurfs: true};
+      return {...state, smurfs: action.payload}
     case updateSmurf:
-      return {... state, smurfs: action.payload, updatingSmurf: true};
+      return {...state, smurfs: action.payload}
     case deleteSmurf:
-      return {... state, smurfs: action.payload, deletingSmurf: true};
+      return {...state, smurfs: action.payload}
     default:
       return state;
   }

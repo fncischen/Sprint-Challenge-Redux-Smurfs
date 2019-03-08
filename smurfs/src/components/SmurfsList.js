@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import Smurf from "./Smurf";
 
+import { connect } from 'react-redux'; 
+
 const SmurfsList = props => {
+    console.log("These smurfs:",props.smurfs)
     return(
         <div className="smurfs-list">
             {props.smurfs.map(a_smurf => 
@@ -10,5 +13,11 @@ const SmurfsList = props => {
         </div>
     )
 } 
+
+// const mapStateToProps = state => {
+//     return {
+//         smurfs: state.smurfs
+//     }
+// }
 
 export default SmurfsList;
