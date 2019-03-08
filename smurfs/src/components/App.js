@@ -18,8 +18,8 @@ import { connect } from 'react-redux';
  */
 class App extends Component {
 
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
     this.state = {
       name: "",
@@ -73,6 +73,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
+  console.log("This State:", state)
   return {
   smurfs: state.smurfs,
   fetchingSmurfs: state.fetching,

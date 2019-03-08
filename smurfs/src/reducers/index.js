@@ -21,13 +21,13 @@ export const smurfReducer = (state = initialState, action) => {
   console.log("Action:", action)
   switch(action.type) {
     case addSmurf:
-      return {... state, smurfs: action.payload.data, addingSmurf: true}
+      return {... state, smurfs: action.payload, addingSmurf: true}
     case getSmurfs:
-      return {... state, smurfs: action.payload.data, fetchingSmurfs: true}
+      return {... state, smurfs: action.payload, fetchingSmurfs: true}
     case updateSmurf:
-      return {... state, smurfs: action.payload.data, updatingSmurf: true}
+      return {... state, smurfs: action.payload, updatingSmurf: true}
     case deleteSmurf:
-      return {... state, smurfs: action.payload.data, deletingSmurf: true}
+      return {... state, smurfs: action.payload, deletingSmurf: true}
     default:
       return state;
   }

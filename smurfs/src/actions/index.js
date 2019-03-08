@@ -16,7 +16,7 @@ export const addingSmurf = (data) => {
     .then(function(res){
       return {
         type: addSmurf,
-        payload: res 
+        payload: res.smurfs 
       }
     })
     .catch(err => console.log(err));
@@ -25,9 +25,10 @@ export const addingSmurf = (data) => {
 export const gettingSmurfs = () => {
   axios.get('/smurfs')
     .then(function(res){
+      console.log(res);
       return {
         type: getSmurfs,
-        payload: res 
+        payload: res.smurfs
       }
     })
     .catch(err => console.log(err));
@@ -38,7 +39,7 @@ export const deletingSmurf = (id) => {
     .then(function(res){
       return {
         type: deleteSmurf,
-        payload: res 
+        payload: res.smurfs
       }
   })
   .catch(err => console.log(err));
