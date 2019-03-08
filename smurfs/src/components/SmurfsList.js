@@ -1,2 +1,12 @@
 import React, { Component } from 'react';
 import {Smurf} from "./components";
+
+export default SmurfsList = props => {
+    return(
+        <div className="smurfs-list">
+            {props.smurfs.map(a_smurf => 
+            <Smurf smurf={a_smurf} toggle={props.toggle} />   
+            )}
+        </div>
+    )
+} 
