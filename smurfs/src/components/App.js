@@ -5,7 +5,7 @@ import SmurfsList from "./SmurfsList";
 
 // importing action creators
 
-import {addingSmurf, gettingSmurfs, deletingSmurf} from "./actions";
+import {addingSmurf, gettingSmurfs, deletingSmurf} from "../actions";
 
 import { connect } from 'react-redux'; 
 

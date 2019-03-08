@@ -18,7 +18,19 @@ const initialState = {
 }
 
 export const smurfReducer = (state = initialState, action) => {
-  
+  console.log("Action:", action)
+  switch(action.type) {
+    case addSmurf:
+      return {... state, smurfs: action.payload.data, addingSmurf: true}
+    case getSmurfs:
+      return {... state, smurfs: action.payload.data, fetchingSmurfs: true}
+    case updateSmurf:
+      return {... state, smurfs: action.payload.data, updatingSmurf: true}
+    case deleteSmurf:
+      return {... state, smurfs: action.payload.data, deletingSmurf: true}
+    default:
+      return state;
+  }
 }
 /*
   You'll only need one smurf reducer for this project.
